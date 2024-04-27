@@ -49,21 +49,7 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
                               system_instruction=system_instruction,
                               safety_settings=safety_settings)
 
-#@title ลงโปรแกรม install อ่านออกเสียง
-!pip install gtts
-
-#@title นำเข้าทรัพยากรที่จำเป็นในการอ่านออกเสียง
-import os
-import pandas as pd
-from IPython.display import display
-from IPython.display import Audio
-from gtts import gTTS
 
 You_Ark = "หัวข้อ 2.2.6 ฌานลึก อยู่หน้าที่ 77-79 ฌานลึกสามารถย่อขันธ์ 5 ได้ ย่อจนเป็นหัวเชื้อที่เข้มข้นของฌาน  การเลื่อนระดับของฌานจากรูปฌานเป็นอรูปฌานต้องมีลักษณะของฌานลึก 7 ข้อดังนี้ 1.กระแสจิต เมื่อผ่านจุดพลังอำนาจจะเกิดกระแส 2.เกิดพลังของจิตจากสมาธิตื้น 3.มีศูนย์รับอารมณ์แทนคล้ายเกราะกระจกป้องกันเสียงหรืออารมณ์ภายนอกที่จะมากระทบจิตได้ 4.วิญญาณ หรือตัวรู้จะถูกพลังจิตกำหนดไว้ให้ทำงานเพียงแค่ผู้รู้ไม่มีอารมณ์ 5.ความครอบครอง อรูปฌาน 5-6-7-8 ความเป็นเจ้าของฌาน 6.ความสงบ 7.ความย่อขันธ์ 5 กลั่นเป็นหัวเชื้อ" # @param {type:"string"}
 convo.send_message(You_Ark)
 print(convo.last.text)
-tts = gTTS(convo.last.text, lang="th")
-tts.save("botsound.mp3")
-
-# เล่นเสียงโดยใช้ IPython.display.Audio
-Audio("botsound.mp3", autoplay=True)
